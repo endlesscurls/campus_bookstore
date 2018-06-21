@@ -33,7 +33,7 @@
           Students
         </label>
 
-        <input type="text" id="students_id" name="students_id" placeholder="Students" class="form-control" value="<%= @class_schedule.students_id %>">
+        <%= select_tag(:students_id, options_from_collection_for_select(Student.all, :id, :email, @class_schedule.students_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
