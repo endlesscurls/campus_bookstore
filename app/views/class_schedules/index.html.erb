@@ -16,8 +16,20 @@
 
       <% @class_schedules.each do |class_schedule| %>
       <tr>
-        <td><%= class_schedule.courses.course_name %></td>
-        <td><%= class_schedule.students.email %></td>
+        <td>
+          <% if class_schedule.courses.present? %>
+            <a href="/courses/<%= class_schedule.courses.id %>">
+              <%= class_schedule.courses.course_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if class_schedule.students.present? %>
+            <a href="/students/<%= class_schedule.students.id %>">
+              <%= class_schedule.students.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/class_schedules/<%= class_schedule.id %>" class="btn btn-primary">Show</a>
           

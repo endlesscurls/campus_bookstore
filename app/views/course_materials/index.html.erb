@@ -16,8 +16,20 @@
 
       <% @course_materials.each do |course_material| %>
       <tr>
-        <td><%= course_material.book.name %></td>
-        <td><%= course_material.course.course_name %></td>
+        <td>
+          <% if course_material.book.present? %>
+            <a href="/books/<%= course_material.book.id %>">
+              <%= course_material.book.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if course_material.course.present? %>
+            <a href="/courses/<%= course_material.course.id %>">
+              <%= course_material.course.course_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/course_materials/<%= course_material.id %>" class="btn btn-primary">Show</a>
           <a href="/course_materials/<%= course_material.id %>/edit" class="btn btn-warning">Edit</a>

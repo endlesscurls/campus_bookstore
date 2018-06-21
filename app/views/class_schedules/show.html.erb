@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Courses</dt>
-      <dd><%= @class_schedule.courses_id %></dd>
+      <dd>
+        <% if @class_schedule.courses.present? %>
+          <a href="/courses/<%= @class_schedule.courses_id %>">
+            <%= @class_schedule.courses.course_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Students</dt>
-      <dd><%= @class_schedule.students_id %></dd>
+      <dd>
+        <% if @class_schedule.students.present? %>
+          <a href="/students/<%= @class_schedule.students_id %>">
+            <%= @class_schedule.students.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

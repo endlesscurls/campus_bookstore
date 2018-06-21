@@ -16,8 +16,20 @@
 
       <% @authorships.each do |authorship| %>
       <tr>
-        <td><%= authorship.books.name %></td>
-        <td><%= authorship.authors.created_at %></td>
+        <td>
+          <% if authorship.books.present? %>
+            <a href="/books/<%= authorship.books.id %>">
+              <%= authorship.books.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if authorship.authors.present? %>
+            <a href="/authors/<%= authorship.authors.id %>">
+              <%= authorship.authors.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/authorships/<%= authorship.id %>" class="btn btn-primary">Show</a>
           <a href="/authorships/<%= authorship.id %>/edit" class="btn btn-warning">Edit</a>

@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Books</dt>
-      <dd><%= @authorship.books_id %></dd>
+      <dd>
+        <% if @authorship.books.present? %>
+          <a href="/books/<%= @authorship.books_id %>">
+            <%= @authorship.books.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Authors</dt>
-      <dd><%= @authorship.authors_id %></dd>
+      <dd>
+        <% if @authorship.authors.present? %>
+          <a href="/authors/<%= @authorship.authors_id %>">
+            <%= @authorship.authors.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
