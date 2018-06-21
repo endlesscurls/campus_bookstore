@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Book has many course_materials -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Course Materials
+      </li>
+
+      <% @book.course_materials.each do |course_material| %>
+        <li class="list-group-item">
+          <a href="/course_materials/<%= course_material.id %>">
+            <%= course_material.book_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/course_materials/<%= course_material.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/course_materials/<%= course_material.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_course_material/<%= course_material.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Book has many authorships -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Authorships
+      </li>
+
+      <% @book.authorships.each do |authorship| %>
+        <li class="list-group-item">
+          <a href="/authorships/<%= authorship.id %>">
+            <%= authorship.books_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/authorships/<%= authorship.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/authorships/<%= authorship.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_authorship/<%= authorship.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

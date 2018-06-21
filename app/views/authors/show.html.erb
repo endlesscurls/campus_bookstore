@@ -23,3 +23,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Author has many authorships -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Authorships
+      </li>
+
+      <% @author.authorships.each do |authorship| %>
+        <li class="list-group-item">
+          <a href="/authorships/<%= authorship.id %>">
+            <%= authorship.books_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/authorships/<%= authorship.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/authorships/<%= authorship.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_authorship/<%= authorship.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
