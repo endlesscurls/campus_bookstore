@@ -1,6 +1,6 @@
 class AuthorshipsController < ApplicationController
   def index
-    @authorships = Authorship.all
+    @authorships = Authorship.page(params[:page]).per(10)
 
     render("authorships/index.html.erb")
   end

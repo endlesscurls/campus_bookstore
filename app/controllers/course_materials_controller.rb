@@ -1,6 +1,6 @@
 class CourseMaterialsController < ApplicationController
   def index
-    @course_materials = CourseMaterial.all
+    @course_materials = CourseMaterial.page(params[:page]).per(10)
 
     render("course_materials/index.html.erb")
   end
