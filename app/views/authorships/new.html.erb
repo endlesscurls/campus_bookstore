@@ -33,7 +33,7 @@
           Authors
         </label>
 
-        <input type="text" id="authors_id" name="authors_id" placeholder="Authors" class="form-control" value="<%= @authorship.authors_id %>">
+        <%= select_tag(:authors_id, options_from_collection_for_select(Author.all, :id, :created_at, @authorship.authors_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
