@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Book resource:
+  # CREATE
+  get "/books/new", :controller => "books", :action => "new"
+  post "/create_book", :controller => "books", :action => "create"
+
+  # READ
+  get "/books", :controller => "books", :action => "index"
+  get "/books/:id", :controller => "books", :action => "show"
+
+  # UPDATE
+  get "/books/:id/edit", :controller => "books", :action => "edit"
+  post "/update_book/:id", :controller => "books", :action => "update"
+
+  # DELETE
+  get "/delete_book/:id", :controller => "books", :action => "destroy"
+  #------------------------------
+
   devise_for :students
   # Routes for the Student resource:
   # READ
