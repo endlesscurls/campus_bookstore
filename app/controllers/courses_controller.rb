@@ -6,6 +6,8 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @class_schedule = ClassSchedule.new
+    @course_material = CourseMaterial.new
     @course = Course.find(params[:id])
 
     render("courses/show.html.erb")

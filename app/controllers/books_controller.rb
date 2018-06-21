@@ -6,6 +6,8 @@ class BooksController < ApplicationController
   end
 
   def show
+    @authorship = Authorship.new
+    @course_material = CourseMaterial.new
     @book = Book.find(params[:id])
 
     render("books/show.html.erb")

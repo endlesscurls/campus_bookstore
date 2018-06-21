@@ -6,6 +6,7 @@ class AuthorsController < ApplicationController
   end
 
   def show
+    @authorship = Authorship.new
     @author = Author.find(params[:id])
 
     render("authors/show.html.erb")

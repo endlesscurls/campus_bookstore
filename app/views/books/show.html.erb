@@ -54,6 +54,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_course_material" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for book_id -->
+      <input type="hidden" name="book_id" value="<%= @book.id %>">
+
+      <!-- Label and input for course_id -->
+      <div class="form-group">
+        <label for="course_id" class="control-label">
+          Course
+        </label>
+
+        <%= select_tag(:course_id, options_from_collection_for_select(Course.all, :id, :course_name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Course Material
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +108,35 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_authorship" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for books_id -->
+      <div class="form-group">
+        <label for="books_id" class="control-label">
+          Books
+        </label>
+
+        <%= select_tag(:books_id, options_from_collection_for_select(Book.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for authors_id -->
+      <div class="form-group">
+        <label for="authors_id" class="control-label">
+          Authors
+        </label>
+
+        <%= select_tag(:authors_id, options_from_collection_for_select(Author.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Authorship
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

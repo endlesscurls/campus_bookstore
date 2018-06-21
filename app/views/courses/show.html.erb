@@ -57,6 +57,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_course_material" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for book_id -->
+      <div class="form-group">
+        <label for="book_id" class="control-label">
+          Book
+        </label>
+
+        <%= select_tag(:book_id, options_from_collection_for_select(Book.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for course_id -->
+      <input type="hidden" name="course_id" value="<%= @course.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Course Material
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -88,6 +111,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_class_schedule" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for courses_id -->
+      <div class="form-group">
+        <label for="courses_id" class="control-label">
+          Courses
+        </label>
+
+        <%= select_tag(:courses_id, options_from_collection_for_select(Course.all, :id, :course_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for students_id -->
+      <input type="hidden" name="students_id" value="<%= current_student.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Class Schedule
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
