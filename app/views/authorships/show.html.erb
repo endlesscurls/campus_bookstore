@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Authorship #<%= @authorship.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Books</dt>
+      <dd><%= @authorship.books_id %></dd>
+
+      <dt>Authors</dt>
+      <dd><%= @authorship.authors_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/authorships" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/authorships/<%= @authorship.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_authorship/<%= @authorship.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

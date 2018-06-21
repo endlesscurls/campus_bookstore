@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Authorship resource:
+  # CREATE
+  get "/authorships/new", :controller => "authorships", :action => "new"
+  post "/create_authorship", :controller => "authorships", :action => "create"
+
+  # READ
+  get "/authorships", :controller => "authorships", :action => "index"
+  get "/authorships/:id", :controller => "authorships", :action => "show"
+
+  # UPDATE
+  get "/authorships/:id/edit", :controller => "authorships", :action => "edit"
+  post "/update_authorship/:id", :controller => "authorships", :action => "update"
+
+  # DELETE
+  get "/delete_authorship/:id", :controller => "authorships", :action => "destroy"
+  #------------------------------
+
   # Routes for the Course_material resource:
   # CREATE
   get "/course_materials/new", :controller => "course_materials", :action => "new"
