@@ -17,12 +17,14 @@
       <a href="/class_schedules" class="btn btn-primary">
         Back
       </a>
-      <a href="/class_schedules/<%= @class_schedule.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_class_schedule/<%= @class_schedule.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_student == @class_schedule.students %>
+        <a href="/class_schedules/<%= @class_schedule.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_class_schedule/<%= @class_schedule.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

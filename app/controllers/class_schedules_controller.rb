@@ -1,4 +1,14 @@
 class ClassSchedulesController < ApplicationController
+  before_action :current_student_must_be_class_schedule_students, :only => [:edit, :update, :destroy]
+
+  def current_student_must_be_class_schedule_students
+    class_schedule = ClassSchedule.find(params[:id])
+
+    unless current_student == class_schedule.students
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @class_schedules = ClassSchedule.all
 
