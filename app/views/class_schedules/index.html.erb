@@ -16,7 +16,7 @@
 
       <% @class_schedules.each do |class_schedule| %>
       <tr>
-        <td><%= class_schedule.courses_id %></td>
+        <td><%= class_schedule.courses.course_name %></td>
         <td><%= class_schedule.students_id %></td>
         <td>
           <a href="/class_schedules/<%= class_schedule.id %>" class="btn btn-primary">Show</a>
