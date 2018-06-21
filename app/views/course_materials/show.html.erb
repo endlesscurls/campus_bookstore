@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Course Material #<%= @course_material.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Book</dt>
+      <dd><%= @course_material.book_id %></dd>
+
+      <dt>Course</dt>
+      <dd><%= @course_material.course_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/course_materials" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/course_materials/<%= @course_material.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_course_material/<%= @course_material.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

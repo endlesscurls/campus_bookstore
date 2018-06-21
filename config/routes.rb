@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Course_material resource:
+  # CREATE
+  get "/course_materials/new", :controller => "course_materials", :action => "new"
+  post "/create_course_material", :controller => "course_materials", :action => "create"
+
+  # READ
+  get "/course_materials", :controller => "course_materials", :action => "index"
+  get "/course_materials/:id", :controller => "course_materials", :action => "show"
+
+  # UPDATE
+  get "/course_materials/:id/edit", :controller => "course_materials", :action => "edit"
+  post "/update_course_material/:id", :controller => "course_materials", :action => "update"
+
+  # DELETE
+  get "/delete_course_material/:id", :controller => "course_materials", :action => "destroy"
+  #------------------------------
+
   # Routes for the Book resource:
   # CREATE
   get "/books/new", :controller => "books", :action => "new"
