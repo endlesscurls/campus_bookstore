@@ -24,7 +24,7 @@
           Courses
         </label>
 
-        <input type="text" id="courses_id" name="courses_id" placeholder="Courses" class="form-control" value="<%= @class_schedule.courses_id %>">
+        <%= select_tag(:courses_id, options_from_collection_for_select(Course.all, :id, :course_name, @class_schedule.courses_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for students_id -->
