@@ -17,7 +17,7 @@
       <% @authorships.each do |authorship| %>
       <tr>
         <td><%= authorship.books.name %></td>
-        <td><%= authorship.authors_id %></td>
+        <td><%= authorship.authors.created_at %></td>
         <td>
           <a href="/authorships/<%= authorship.id %>" class="btn btn-primary">Show</a>
           <a href="/authorships/<%= authorship.id %>/edit" class="btn btn-warning">Edit</a>
