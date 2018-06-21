@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "authors#index"
   # Routes for the Class_schedule resource:
   # CREATE
   get "/class_schedules/new", :controller => "class_schedules", :action => "new"
