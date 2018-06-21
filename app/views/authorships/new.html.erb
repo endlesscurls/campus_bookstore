@@ -24,7 +24,7 @@
           Books
         </label>
 
-        <input type="text" id="books_id" name="books_id" placeholder="Books" class="form-control" value="<%= @authorship.books_id %>">
+        <%= select_tag(:books_id, options_from_collection_for_select(Book.all, :id, :name, @authorship.books_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for authors_id -->
