@@ -1,6 +1,7 @@
 class CourseMaterialsController < ApplicationController
   def index
-    @course_materials = CourseMaterial.page(params[:page]).per(10)
+    @q = CourseMaterial.ransack(params[:q])
+    @course_materials = @q.result(:distinct => true).includes(:course, :book).page(params[:page]).per(10)
 
     render("course_materials/index.html.erb")
   end

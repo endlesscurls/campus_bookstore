@@ -1,6 +1,7 @@
 class AuthorsController < ApplicationController
   def index
-    @authors = Author.page(params[:page]).per(10)
+    @q = Author.ransack(params[:q])
+    @authors = @q.result(:distinct => true).includes(:authorships).page(params[:page]).per(10)
 
     render("authors/index.html.erb")
   end
