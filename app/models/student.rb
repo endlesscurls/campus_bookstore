@@ -1,6 +1,10 @@
 class Student < ApplicationRecord
   # Direct associations
 
+  has_one    :class_schedule,
+             :foreign_key => "students_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
