@@ -10,7 +10,7 @@ class ClassSchedulesController < ApplicationController
   end
 
   def index
-    @class_schedules = ClassSchedule.all
+    @class_schedules = [current_student.class_schedule]
 
     render("class_schedules/index.html.erb")
   end
