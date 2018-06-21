@@ -1,5 +1,5 @@
 class ClassSchedulesController < ApplicationController
-  before_action :current_student_must_be_class_schedule_students, :only => [:edit, :update, :destroy]
+  before_action :current_student_must_be_class_schedule_students, :only => [:show, :edit, :update, :destroy]
 
   def current_student_must_be_class_schedule_students
     class_schedule = ClassSchedule.find(params[:id])
