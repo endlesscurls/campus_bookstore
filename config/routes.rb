@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Class_schedule resource:
+  # CREATE
+  get "/class_schedules/new", :controller => "class_schedules", :action => "new"
+  post "/create_class_schedule", :controller => "class_schedules", :action => "create"
+
+  # READ
+  get "/class_schedules", :controller => "class_schedules", :action => "index"
+  get "/class_schedules/:id", :controller => "class_schedules", :action => "show"
+
+  # UPDATE
+  get "/class_schedules/:id/edit", :controller => "class_schedules", :action => "edit"
+  post "/update_class_schedule/:id", :controller => "class_schedules", :action => "update"
+
+  # DELETE
+  get "/delete_class_schedule/:id", :controller => "class_schedules", :action => "destroy"
+  #------------------------------
+
   # Routes for the Authorship resource:
   # CREATE
   get "/authorships/new", :controller => "authorships", :action => "new"
