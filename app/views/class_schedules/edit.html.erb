@@ -27,14 +27,8 @@
         <%= select_tag(:courses_id, options_from_collection_for_select(Course.all, :id, :course_name, @class_schedule.courses_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for students_id -->
-      <div class="form-group">
-        <label for="students_id" class="control-label">
-          Students
-        </label>
-
-        <%= select_tag(:students_id, options_from_collection_for_select(Student.all, :id, :email, @class_schedule.students_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <button class="btn btn-warning">
         Update Class Schedule
